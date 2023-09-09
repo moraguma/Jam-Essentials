@@ -30,7 +30,7 @@ func goto_scene_and_call(path, method_name, parameters):
 # go to the next scene. Otherwise, the next scene will only load once the method
 # finish_transition is called. This can be extended to call a transition
 # animation that will call finish_transition at the appropriate time
-func goto_scene(path):
+func goto_scene(path: String) -> void:
 	if not transitioning:
 		current_path = path
 		
@@ -38,12 +38,12 @@ func goto_scene(path):
 		
 		GlobalCamera.start_transition_animation()
 		await GlobalCamera.finish_transition
-		call_deferred("finish_transition")
+		call_deferred("_finish_transition")
 
 
 # Instantiates the scene specified on the last goto_scene call. If a method has
 # been queued, will call that method on the root not of that new scene
-func finish_transition():
+func _finish_transition():
 	if transitioning:
 		transitioning = false
 		
@@ -61,5 +61,5 @@ func finish_transition():
 
 
 # Queues a transition to the current scene
-func restart():
+func restart() -> void:
 	goto_scene(current_path)
