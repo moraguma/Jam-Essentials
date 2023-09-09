@@ -14,6 +14,10 @@ config/name="Jam Essentials"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*res://addons/scenes/SceneManager.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/jam_essentials/plugin.cfg")
