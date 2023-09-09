@@ -1,3 +1,5 @@
+![](icon.png)
+
 # Moraguma's Jam Essentials
 
 Hey! This here is a compilation of a couple of autoloads and scripts I use for pretty much every jam game I make. You can play those games [on my itch page!](https://moraguma.itch.io/)
