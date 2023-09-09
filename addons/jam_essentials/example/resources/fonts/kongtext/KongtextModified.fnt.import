@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://byt8x4bvfpe3v"
+path="res://.godot/imported/KongtextModified.fnt-0a01acd93e26d763dd53e2a64209c22e.fontdata"
+
+[deps]
+
+source_file="res://addons/jam_essentials/example/resources/fonts/kongtext/KongtextModified.fnt"
+dest_files=["res://.godot/imported/KongtextModified.fnt-0a01acd93e26d763dd53e2a64209c22e.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

@@ -22,8 +22,8 @@ SoundController="*res://addons/jam_essentials/scenes/SoundController.tscn"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=384
+window/size/viewport_height=216
 window/stretch/mode="viewport"
 
 [editor_plugins]
