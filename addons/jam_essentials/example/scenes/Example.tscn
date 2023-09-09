@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8cyf2w0f73me"]
+[gd_scene load_steps=11 format=3 uid="uid://b8cyf2w0f73me"]
 
 [ext_resource type="Texture2D" uid="uid://sxiqy3vqaylf" path="res://addons/jam_essentials/example/resources/sprites/tilemap_packed.png" id="1_8xjt2"]
 [ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/TransitionButton.gd" id="1_t2ux2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/jam_essentials/example/scenes/scripts/ShakeButton.gd" id="2_eb3sf"]
 [ext_resource type="Theme" uid="uid://kipqoxadxtam" path="res://addons/jam_essentials/example/resources/themes/Example.tres" id="3_807ep"]
 [ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/CameraFocusButton.gd" id="3_m6li7"]
+[ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/WavingElement.gd" id="7_8dl2a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jydld"]
 texture = ExtResource("1_8xjt2")
@@ -575,3 +576,12 @@ theme = ExtResource("3_807ep")
 bbcode_enabled = true
 text = "[center]Assets by kenney.nl
 Font by codeman38"
+
+[node name="Wave" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-282, 89)
+texture = ExtResource("2_bud1s")
+hframes = 20
+vframes = 9
+frame = 27
+script = ExtResource("7_8dl2a")
