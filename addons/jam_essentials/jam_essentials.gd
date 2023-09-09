@@ -2,7 +2,11 @@
 extends EditorPlugin
 
 
-const AUTOLOADS = {"SceneManager": "res://addons/scenes/SceneManager.tscn"}
+const AUTOLOADS = {
+	"SceneManager": "res://addons/jam_essentials/scenes/SceneManager.tscn",
+	"GlobalCamera": "res://addons/jam_essentials/scenes/GlobalCamera.tscn",
+	"SoundController": "res://addons/jam_essentials/scenes/SoundController.tscn"
+}
 
 
 func _enter_tree():
