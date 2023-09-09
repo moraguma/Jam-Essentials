@@ -6,6 +6,7 @@ const ON_DB = 0.0
 
 
 const LERP_WEIGHT = 0.05
+const VOLUME_TOLERANCE = 1
 
 
 var sfx = {}
@@ -27,10 +28,14 @@ func _ready():
 func _process(delta):
 	for music_name in music:
 		music[music_name].volume_db = lerp(music[music_name].volume_db, ON_DB if music_name == current_music else OFF_DB, LERP_WEIGHT)
+		
+		if abs(music[music_name].volume_db - OFF_DB) < VOLUME_TOLERANCE and music[music_name].playing:
+			music[music_name].stop()
 
 
 func play_music(music_name):
 	assert(music_name in music, "Music {0} not found".format([music_name]))
+	music[music_name].play()
 	current_music = music_name
 
 
