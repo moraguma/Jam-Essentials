@@ -14,7 +14,7 @@ const MAX_ROLL = 0.15
 const TRAUMA_POWER = 2
 
 
-@onready var center: Vector2 = get_viewport().size / 2
+@onready var center: Vector2 = Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height")) / 2
 @onready var aim_pos: Vector2 = center
 var aim_node: Node2D = null
 
@@ -34,8 +34,7 @@ func _ready():
 	noise.frequency = 0.25
 	
 	position = center
-	
-	shader_canvas.size = get_viewport().size + 2 * Vector2i(MAX_OFFSET)
+	shader_canvas.size = Vector2i(ProjectSettings.get_setting("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height")) + 2 * Vector2i(MAX_OFFSET)
 	shader_canvas.position = -center - MAX_OFFSET
 
 
