@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8cyf2w0f73me"]
+
+[ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/TransitionButton.gd" id="1_1cw3k"]
+
+[node name="Button" type="Button"]
+offset_left = 697.0
+offset_top = 418.0
+offset_right = 1113.0
+offset_bottom = 581.0
+script = ExtResource("1_1cw3k")
+transition_path = "res://Example.tscn"

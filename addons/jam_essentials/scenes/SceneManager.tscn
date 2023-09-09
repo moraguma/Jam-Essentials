@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxdxg6jh3h4mv"]
+
+[ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/SceneManager.gd" id="1_r77e3"]
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_r77e3")

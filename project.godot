@@ -16,7 +16,14 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SceneManager="*res://addons/scenes/SceneManager.tscn"
+SceneManager="*res://addons/jam_essentials/scenes/SceneManager.tscn"
+GlobalCamera="*res://addons/jam_essentials/scenes/GlobalCamera.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

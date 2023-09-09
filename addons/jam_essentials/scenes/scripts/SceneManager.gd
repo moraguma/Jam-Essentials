@@ -1,7 +1,5 @@
 extends Node
 
-@export var instantaneous_transition = true
-
 var current_scene = null
 var current_path = ""
 var transitioning = false
@@ -38,8 +36,9 @@ func goto_scene(path):
 		
 		transitioning = true
 		
-		if instantaneous_transition:
-			call_deferred("finish_transition")
+		GlobalCamera.start_transition_animation()
+		await GlobalCamera.finish_transition
+		call_deferred("finish_transition")
 
 
 # Instantiates the scene specified on the last goto_scene call. If a method has

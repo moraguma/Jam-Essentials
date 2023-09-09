@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://2m7l3iog47y6"]
+
+[ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/GlobalCamera.gd" id="1_krm24"]
+[ext_resource type="Shader" path="res://addons/jam_essentials/resources/shaders/Diamond.gdshader" id="2_60hwt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kk6bl"]
+shader = ExtResource("2_60hwt")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 50.0
+
+[node name="GlobalCamera" type="Camera2D"]
+script = ExtResource("1_krm24")
+
+[node name="ShaderCanvas" type="ColorRect" parent="."]
+z_index = 99
+material = SubResource("ShaderMaterial_kk6bl")
+offset_left = -1120.0
+offset_top = -630.0
+offset_right = 1120.0
+offset_bottom = 630.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
