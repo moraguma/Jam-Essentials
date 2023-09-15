@@ -5,7 +5,8 @@ extends EditorPlugin
 const AUTOLOADS = {
 	"SceneManager": "res://addons/jam_essentials/scenes/SceneManager.tscn",
 	"GlobalCamera": "res://addons/jam_essentials/scenes/GlobalCamera.tscn",
-	"SoundController": "res://addons/jam_essentials/scenes/SoundController.tscn"
+	"SoundController": "res://addons/jam_essentials/scenes/SoundController.tscn",
+	"Globals": "res://addons/jam_essentials/scenes/Globals.tscn"
 }
 
 

@@ -47,3 +47,13 @@ func play_sfx(sfx_name):
 	assert(sfx_name in sfx, "SFX {0} not found".format([sfx_name]))
 	sfx[sfx_name].stop()
 	sfx[sfx_name].play()
+
+
+func set_volume(bus: int, volume: float):
+	volume = clamp(volume, 0.0, 1.0)
+	
+	if volume <= 0.0:
+		AudioServer.set_bus_mute(bus, true)
+	else:
+		AudioServer.set_bus_mute(bus, false)
+		AudioServer.set_bus_volume_db(bus, 20 * log(volume)
