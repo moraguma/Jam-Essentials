@@ -56,4 +56,4 @@ func set_volume(bus: int, volume: float):
 		AudioServer.set_bus_mute(bus, true)
 	else:
 		AudioServer.set_bus_mute(bus, false)
-		AudioServer.set_bus_volume_db(bus, 20 * log(volume)
+		AudioServer.set_bus_volume_db(bus, 20 * log(volume))
