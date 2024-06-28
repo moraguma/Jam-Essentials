@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bcpbgdbcdxj6f"
+path="res://.godot/imported/Not Jam UI 12.ttf-39c990149ef61018979ba701da75fe1c.fontdata"
+
+[deps]
+
+source_file="res://addons/jam_essentials/resources/fonts/NotJamFontPack/Not Jam UI 12/Not Jam UI 12.ttf"
+dest_files=["res://.godot/imported/Not Jam UI 12.ttf-39c990149ef61018979ba701da75fe1c.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=0
+subpixel_positioning=0
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

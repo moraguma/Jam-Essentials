@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bofuoghrsdwoo"
+path="res://.godot/imported/Bore Blasters All Caps 16.ttf-f6356d221ed7c44c259150ca4031db31.fontdata"
+
+[deps]
+
+source_file="res://addons/jam_essentials/resources/fonts/NotJamFontPack/BoreBlasters16/Bore Blasters All Caps 16.ttf"
+dest_files=["res://.godot/imported/Bore Blasters All Caps 16.ttf-f6356d221ed7c44c259150ca4031db31.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=0
+subpixel_positioning=0
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

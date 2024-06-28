@@ -19,36 +19,56 @@ var current_music
 
 
 func _ready():
-	for node in music_container.get_children():
-		music[node.name] = node
-	for node in sfx_container.get_children():
-		sfx[node.name] = node
+	populate_sound_dict(music_container, music, Globals.MUSIC_BUS)
+	populate_sound_dict(sfx_container, sfx, Globals.SFX_BUS)
+
+
+func populate_sound_dict(container: Node, dict: Dictionary, bus: int, prefix: String=""):
+	for node in container.get_children():
+		if not node is AudioStreamPlayer:
+			populate_sound_dict(node, dict, bus, prefix + node.name + "/")
+		else:
+			dict[prefix + node.name] = node
+			node.set_bus(Globals.BUS_TO_STRING[bus])
+
+
+func get_audio_player(dict: Dictionary, path: String) -> AudioStreamPlayer:
+	if Globals.check_and_error(not path in dict, "Tried playing sound with invalid path %s" % [path]) or Globals.check_and_error(not dict[path] is AudioStreamPlayer, "%s is not an AudioStreamPlayer"):
+		return null
+	return dict[path]
 
 
 func _process(delta):
 	for music_name in music:
-		music[music_name].volume_db = lerp(music[music_name].volume_db, ON_DB if music_name == current_music else OFF_DB, LERP_WEIGHT)
-		
-		if abs(music[music_name].volume_db - OFF_DB) < VOLUME_TOLERANCE and music[music_name].playing:
-			music[music_name].stop()
+		if music[music_name].playing:
+			music[music_name].volume_db = lerp(music[music_name].volume_db, ON_DB if music_name == current_music else OFF_DB, LERP_WEIGHT)
+			
+			if abs(music[music_name].volume_db - OFF_DB) < VOLUME_TOLERANCE:
+				music[music_name].stop()
 
 
-func play_music(music_name):
-	assert(music_name in music, "Music {0} not found".format([music_name]))
-	music[music_name].play()
-	current_music = music_name
+## Plays music in given path. Should be nodepath from Music node
+func play_music(path):
+	var music = get_audio_player(music, path)
+	if music != null:
+		music.play()
+		current_music = path
 
 
+## Stops playing current music
 func mute_music():
 	current_music = null
 
 
-func play_sfx(sfx_name):
-	assert(sfx_name in sfx, "SFX {0} not found".format([sfx_name]))
-	sfx[sfx_name].stop()
-	sfx[sfx_name].play()
+## Plays sfx in given path. Should be nodepath from SFX node
+func play_sfx(path):
+	var sfx = get_audio_player(sfx, path)
+	if sfx != null:
+		sfx.stop()
+		sfx.play()
 
 
+## Sets volume for given bus. Bus numbers are defined as consts in Globals
 func set_volume(bus: int, volume: float):
 	volume = clamp(volume, 0.0, 1.0)
 	

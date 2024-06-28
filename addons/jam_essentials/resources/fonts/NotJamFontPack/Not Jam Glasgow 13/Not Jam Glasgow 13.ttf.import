@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bejxkrr30avj6"
+path="res://.godot/imported/Not Jam Glasgow 13.ttf-b90190bae36687ade7a35c13d64fdef9.fontdata"
+
+[deps]
+
+source_file="res://addons/jam_essentials/resources/fonts/NotJamFontPack/Not Jam Glasgow 13/Not Jam Glasgow 13.ttf"
+dest_files=["res://.godot/imported/Not Jam Glasgow 13.ttf-b90190bae36687ade7a35c13d64fdef9.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=0
+subpixel_positioning=0
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

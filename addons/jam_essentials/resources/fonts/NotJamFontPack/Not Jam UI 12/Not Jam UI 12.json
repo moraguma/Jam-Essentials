@@ -1,0 +1,46 @@
+{
+	"$baseURI": "https://yal.cc/r/20/pixelfont/",
+	"$version": "1.0",
+	"in-glyphs": [
+		" !\\\"#$%&'()*+,-/",
+		"0123456789:;<=>?",
+		".ABCDEFGHIJKLMNO",
+		"PQRSTUVWXYZ[]^_@",
+		"`abcdefghijklmno",
+		"pqrstuvwxyz{|}~∎",
+		"¡¢£¤¥¦§¨ª«¬¯°±²³",
+		"´µ¶·¸¹º»¼½¾¿€"
+	],
+	"glyph-color": "auto",
+	"in-kerning": [
+		""
+	],
+	"glyph-width": 14,
+	"glyph-height": 12,
+	"glyph-ofs-x": 1,
+	"glyph-ofs-y": 8,
+	"glyph-sep-x": 1,
+	"glyph-sep-y": 8,
+	"glyph-base-x": 0,
+	"glyph-baseline": 9,
+	"glyph-spacing": 2,
+	"font-is-mono": false,
+	"font-em-square": 1024,
+	"font-line-gap": 0,
+	"font-ascend": 768,
+	"font-descend": -256,
+	"font-px-size": 85.3,
+	"font-name": "Not Jam UI 12",
+	"font-author": "Not Jam",
+	"font-copy": "CC0",
+	"font-version": "1.0.0",
+	"font-desc": "",
+	"font-license": "CC0",
+	"font-license-url": "",
+	"font-sample-text": "The quick brown fox jumps over the lazy dog.",
+	"font-preview-text": [
+		"THE QUICK BROWN FOX JUMPS OVER A LAZY DOG.",
+		"the quick brown fox jumps over a lazy dog.",
+		"0123456789"
+	]
+}

@@ -7,4 +7,16 @@ script = ExtResource("1_xbq3f")
 
 [node name="SFX" type="Node" parent="."]
 
+[node name="Example" type="AudioStreamPlayer" parent="SFX"]
+
+[node name="Topic" type="Node" parent="SFX"]
+
+[node name="Example" type="AudioStreamPlayer" parent="SFX/Topic"]
+
 [node name="Music" type="Node" parent="."]
+
+[node name="Example" type="AudioStreamPlayer" parent="Music"]
+
+[node name="Topic" type="Node" parent="Music"]
+
+[node name="Example" type="AudioStreamPlayer" parent="Music/Topic"]

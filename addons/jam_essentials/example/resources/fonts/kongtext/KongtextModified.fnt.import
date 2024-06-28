@@ -14,3 +14,4 @@ dest_files=["res://.godot/imported/KongtextModified.fnt-0a01acd93e26d763dd53e2a6
 
 fallbacks=[]
 compress=true
+scaling_mode=2

@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://c8jmf1fnq7ji1"
+path="res://.godot/imported/Bore Blasters 16.ttf-f01c94945d98c940bd33036609388a8a.fontdata"
+
+[deps]
+
+source_file="res://addons/jam_essentials/resources/fonts/NotJamFontPack/BoreBlasters16/Bore Blasters 16.ttf"
+dest_files=["res://.godot/imported/Bore Blasters 16.ttf-f01c94945d98c940bd33036609388a8a.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=0
+subpixel_positioning=0
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

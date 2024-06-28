@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://2f3vtrnuwlr1"
+path="res://.godot/imported/Not Jam Toolkit 19.ttf-e35e280c5dbc4a3c39f9c2d2f28d262b.fontdata"
+
+[deps]
+
+source_file="res://addons/jam_essentials/resources/fonts/NotJamFontPack/Not Jam Toolkit 15/Not Jam Toolkit 19.ttf"
+dest_files=["res://.godot/imported/Not Jam Toolkit 19.ttf-e35e280c5dbc4a3c39f9c2d2f28d262b.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=0
+subpixel_positioning=0
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
