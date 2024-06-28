@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cgx1aesy2y2eu"]
+
+[ext_resource type="Shader" path="res://addons/jam_essentials/resources/shaders/transition/Spikes.gdshader" id="1_v66tm"]
+
+[resource]
+shader = ExtResource("1_v66tm")
+shader_parameter/progress = 0.0
+shader_parameter/amount = 15.0

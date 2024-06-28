@@ -16,8 +16,8 @@ func _ready():
 	current_path = current_scene.scene_file_path
 
 
-# Queues a transition and stores a method to call with the specified parameters
-# on the root node of the next scene once the transition finishes
+## Queues a transition and stores a method to call with the specified parameters
+## on the root node of the next scene once the transition finishes
 func goto_scene_and_call(path, method_name, parameters):
 	call_queued = true
 	queued_method = method_name
@@ -26,10 +26,10 @@ func goto_scene_and_call(path, method_name, parameters):
 	goto_scene(path)
 
 
-# Queues a transition. If instantaneous_transition is true, will immediately
-# go to the next scene. Otherwise, the next scene will only load once the method
-# finish_transition is called. This can be extended to call a transition
-# animation that will call finish_transition at the appropriate time
+## Queues a transition. If instantaneous_transition is true, will immediately
+## go to the next scene. Otherwise, the next scene will only load once the method
+## finish_transition is called. This can be extended to call a transition
+## animation that will call finish_transition at the appropriate time
 func goto_scene(path: String) -> void:
 	if not transitioning:
 		current_path = path
@@ -41,8 +41,8 @@ func goto_scene(path: String) -> void:
 		call_deferred("_finish_transition")
 
 
-# Instantiates the scene specified on the last goto_scene call. If a method has
-# been queued, will call that method on the root not of that new scene
+## Instantiates the scene specified on the last goto_scene call. If a method has
+## been queued, will call that method on the root not of that new scene
 func _finish_transition():
 	if transitioning:
 		transitioning = false
@@ -60,6 +60,6 @@ func _finish_transition():
 		get_tree().set_current_scene(current_scene)
 
 
-# Queues a transition to the current scene
+## Queues a transition to the current scene
 func restart() -> void:
 	goto_scene(current_path)

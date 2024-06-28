@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cvgqitf5ye17u"]
+
+[ext_resource type="Shader" path="res://addons/jam_essentials/resources/shaders/transition/Diamond.gdshader" id="1_5rupj"]
+
+[resource]
+shader = ExtResource("1_5rupj")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 50.0
