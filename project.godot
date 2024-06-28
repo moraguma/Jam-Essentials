@@ -17,10 +17,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SceneManager="*res://addons/jam_essentials/scenes/SceneManager.tscn"
-GlobalCamera="*res://addons/jam_essentials/scenes/GlobalCamera.tscn"
-SoundController="*res://addons/jam_essentials/scenes/SoundController.tscn"
-Globals="*res://addons/jam_essentials/scenes/Globals.tscn"
+SceneManager="*res://addons/jam_essentials/scenes/autoloads/SceneManager.tscn"
+GlobalCamera="*res://addons/jam_essentials/scenes/autoloads/GlobalCamera.tscn"
+SoundController="*res://addons/jam_essentials/scenes/autoloads/SoundController.tscn"
+Globals="*res://addons/jam_essentials/scenes/autoloads/Globals.tscn"
 
 [display]
 
@@ -31,3 +31,7 @@ window/stretch/mode="viewport"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/jam_essentials/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

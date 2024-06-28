@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://rgwbc7cepwep"]
-
-[ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/Globals.gd" id="1_2jvbs"]
-
-[node name="Globals" type="Node"]
-script = ExtResource("1_2jvbs")

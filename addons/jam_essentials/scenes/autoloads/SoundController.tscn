@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqkx1bmvj3rym"]
+
+[ext_resource type="Script" path="res://addons/jam_essentials/scenes/autoloads/scripts/SoundController.gd" id="1_lfq44"]
+
+[node name="SoundController" type="Node"]
+script = ExtResource("1_lfq44")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Example" type="AudioStreamPlayer" parent="SFX"]
+
+[node name="Topic" type="Node" parent="SFX"]
+
+[node name="Example" type="AudioStreamPlayer" parent="SFX/Topic"]
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Example" type="AudioStreamPlayer" parent="Music"]
+
+[node name="Topic" type="Node" parent="Music"]
+
+[node name="Example" type="AudioStreamPlayer" parent="Music/Topic"]
