@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dselgy4gp3uyg"]
+
+[ext_resource type="Script" uid="uid://bee8wtsukutph" path="res://addons/jam_essentials/scenes/components/scripts/RandomPitchAudioStreamPlayer.gd" id="1_nj3gv"]
+
+[node name="RandomPitchAudioStreamPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_nj3gv")
