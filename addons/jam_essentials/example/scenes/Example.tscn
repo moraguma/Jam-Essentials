@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://b8cyf2w0f73me"]
 
 [ext_resource type="Texture2D" uid="uid://sxiqy3vqaylf" path="res://addons/jam_essentials/example/resources/sprites/tilemap_packed.png" id="1_8xjt2"]
-[ext_resource type="Script" path="res://addons/jam_essentials/scenes/components/scripts/TransitionButton.gd" id="1_t2ux2"]
+[ext_resource type="Script" uid="uid://b7ytx6c4yb4gk" path="res://addons/jam_essentials/scenes/components/scripts/TransitionButton.gd" id="1_t2ux2"]
 [ext_resource type="Texture2D" uid="uid://cleltsfuufsiv" path="res://addons/jam_essentials/example/resources/sprites/tiles_packed.png" id="2_bud1s"]
-[ext_resource type="Script" path="res://addons/jam_essentials/example/scenes/scripts/ShakeButton.gd" id="2_eb3sf"]
-[ext_resource type="Script" path="res://addons/jam_essentials/scenes/components/scripts/CameraFocusButton.gd" id="3_m6li7"]
+[ext_resource type="Script" uid="uid://cwj05hfbwh52b" path="res://addons/jam_essentials/example/scenes/scripts/ShakeButton.gd" id="2_eb3sf"]
+[ext_resource type="Script" uid="uid://vtq8jaajr32e" path="res://addons/jam_essentials/scenes/components/scripts/CameraFocusButton.gd" id="3_m6li7"]
 [ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="3_shhrb"]
-[ext_resource type="Script" path="res://addons/jam_essentials/scenes/components/scripts/WavingElement.gd" id="7_8dl2a"]
+[ext_resource type="Script" uid="uid://dacxvqs7ubqpe" path="res://addons/jam_essentials/scenes/components/scripts/WavingElement.gd" id="7_8dl2a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jydld"]
 texture = ExtResource("1_8xjt2")

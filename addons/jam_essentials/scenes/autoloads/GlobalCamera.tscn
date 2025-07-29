@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://2m7l3iog47y6"]
 
-[ext_resource type="Script" path="res://addons/jam_essentials/scenes/autoloads/scripts/GlobalCamera.gd" id="1_uxxvl"]
+[ext_resource type="Script" uid="uid://c241o0tglqtjg" path="res://addons/jam_essentials/scenes/autoloads/scripts/GlobalCamera.gd" id="1_uxxvl"]
 [ext_resource type="Material" uid="uid://cgx1aesy2y2eu" path="res://addons/jam_essentials/resources/shaders/transition/Spikes.tres" id="2_fbgqt"]
 
 [node name="GlobalCamera" type="Camera2D"]

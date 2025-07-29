@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqkx1bmvj3rym"]
 
-[ext_resource type="Script" path="res://addons/jam_essentials/scenes/autoloads/scripts/SoundController.gd" id="1_lfq44"]
+[ext_resource type="Script" uid="uid://dqe0hhn3td6yr" path="res://addons/jam_essentials/scenes/autoloads/scripts/SoundController.gd" id="1_lfq44"]
 
 [node name="SoundController" type="Node"]
 script = ExtResource("1_lfq44")

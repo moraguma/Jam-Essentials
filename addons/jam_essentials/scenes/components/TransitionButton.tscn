@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxoyrbeo820u5"]
 
 [ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_ufdfu"]
-[ext_resource type="Script" path="res://addons/jam_essentials/scenes/components/scripts/TransitionButton.gd" id="2_jmc5h"]
+[ext_resource type="Script" uid="uid://b7ytx6c4yb4gk" path="res://addons/jam_essentials/scenes/components/scripts/TransitionButton.gd" id="2_jmc5h"]
 
 [node name="TransitionButton" type="Button"]
 offset_right = 67.0
