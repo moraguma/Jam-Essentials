@@ -57,7 +57,7 @@ func get_audio(path):
 			return null
 		
 		node = audios.pick_random()
-	node.play()
+	return node
 
 
 ## Plays music in given path. Should be nodepath from Music node
