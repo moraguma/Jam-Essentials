@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgqwgb05hk6vi"]
-
-[ext_resource type="Texture2D" uid="uid://cw8s5edip4626" path="res://itchicon.png" id="1_0544y"]
+[gd_scene format=3 uid="uid://bgqwgb05hk6vi"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -10,7 +8,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -19,14 +17,8 @@ anchor_right = 0.8
 anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_0544y")
-expand_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1

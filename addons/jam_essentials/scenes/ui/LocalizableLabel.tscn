@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfcunsevfo48a"]
+
+[ext_resource type="Script" uid="uid://qefol8e1beur" path="res://addons/jam_essentials/scenes/ui/scripts/LocalizableLabel.gd" id="1_drx5m"]
+
+[node name="LocalizableLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_drx5m")

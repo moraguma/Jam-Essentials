@@ -4,6 +4,7 @@ class_name Options
 
 const TAB_SCENE = preload("res://addons/jam_essentials/scenes/ui/Tab.tscn")
 const MENU_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsMenu.tscn")
+const TITLE_SCENE = preload("res://addons/jam_essentials/scenes/ui/MenuTitle.tscn")
 
 const TAB_TLERP_WEIGHT = 100.0
 const MENU_TLERP_WEIGHT = 100.0
@@ -26,36 +27,37 @@ var inactive_tab_spacing = 0.0
 ##
 ## {
 ##     "type": "button",
-##     "translation_code": "code",
+##     "localization_code": "code",
 ##     "func_to_call": ""
 ## }
 ##
 ## {
 ##     "type": "title",
-##     "translation_code": "code"
+##     "localization_code": "code"
 ## }
 ##
 ## {
 ##     "type": "check_button",
-##     "translation_code": "code",
+##     "localization_code": "code",
 ##     "func_to_call": ""
 ## }
 ##
 ## {
 ##     "type": "dropdown_button",
-##     "translation_codes": ["code1", "code2"],
+##     "localization_codes": ["code1", "code2"],
 ##     "option_arguments": [arg1, arg2]
 ##     "func_to_call": ""
 ## }
 ##
 ## {
 ##     "type": "slider",
-##     "translation_code": "code",
+##     "localization_code": "code",
 ##     "notches": -1 to +inf
 ##     "func_to_call": ""
 ## }
 @export var menu_specifications: Array[Array] = []
 var menus: Array[Control] = []
+var menu_focusables: Array[Array] = []
 
 
 var tabs: Array[Tab]
@@ -94,6 +96,16 @@ func _ready() -> void:
 		var new_menu = MENU_SCENE.instantiate()
 		new_menu.custom_minimum_size = main_panel.size
 		menu_container.add_child(new_menu)
+		menus.append(new_menu)
+		
+		var new_menu_container = new_menu.get_node("ScrollContainer/VBoxContainer")
+		menu_focusables.append([])
+		for object in menu_specifications[i]:
+			match object["type"]:
+				"title":
+					var new_title = TITLE_SCENE.instantiate()
+					new_title.localization_code = object["localization_code"]
+					new_menu_container.add_child(new_title)
 
 
 func _physics_process(delta: float) -> void:

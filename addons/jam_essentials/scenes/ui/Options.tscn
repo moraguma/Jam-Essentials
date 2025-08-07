@@ -15,7 +15,10 @@ grow_vertical = 2
 script = ExtResource("1_kotvn")
 tab_names = Array[String](["General", "Video", "Audio"])
 tab_icons = Array[Texture2D]([ExtResource("2_5nwpc"), ExtResource("2_5nwpc"), ExtResource("2_5nwpc")])
-menu_specifications = Array[Array]([[], [], []])
+menu_specifications = Array[Array]([[{
+"localization_code": "test",
+"type": "title"
+}], [], []])
 
 [node name="Tabs" type="Control" parent="."]
 layout_mode = 1
