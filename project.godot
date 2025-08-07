@@ -24,8 +24,8 @@ Globals="*res://addons/jam_essentials/scenes/autoloads/Globals.tscn"
 
 [display]
 
-window/size/viewport_width=384
-window/size/viewport_height=216
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [editor_plugins]

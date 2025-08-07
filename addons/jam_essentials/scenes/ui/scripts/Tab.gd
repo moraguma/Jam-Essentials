@@ -1,0 +1,35 @@
+extends Panel
+class_name Tab
+
+
+signal clicked
+
+
+@export var selected_panel: StyleBox
+@export var deselected_panel: StyleBox
+
+
+@onready var icon: TextureRect = $HBoxContainer/Icon
+@onready var tab_label: Label = $HBoxContainer/Name
+
+
+## Names and sets icon
+func initialize(tab_name: String, icon_texture: Texture2D) -> void:
+	icon.texture = icon_texture
+	tab_label.name = tab_name
+
+
+## Called when this tab is selected
+func select() -> void:
+	tab_label.show()
+	add_theme_stylebox_override("panel", selected_panel)
+
+
+## Called when this tab is deselected
+func deselect() -> void:
+	tab_label.hide()
+	add_theme_stylebox_override("panel", deselected_panel)
+
+
+func pressed() -> void:
+	clicked.emit()

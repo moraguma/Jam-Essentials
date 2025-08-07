@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://kp8drtx2b1ba"]
+
+[ext_resource type="Script" uid="uid://dyt5o6k63gyfi" path="res://addons/jam_essentials/scenes/ui/scripts/Tab.gd" id="1_gvume"]
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_plrqq"]
+[ext_resource type="Texture2D" uid="uid://cl01xmsdwo7v2" path="res://icon.png" id="2_plrqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plrqq"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1qx7"]
+bg_color = Color(0.712129, 0.712129, 0.712129, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+
+[node name="Tab" type="Panel"]
+clip_children = 2
+offset_right = 300.0
+offset_bottom = 40.0
+theme = ExtResource("1_plrqq")
+script = ExtResource("1_gvume")
+selected_panel = SubResource("StyleBoxFlat_plrqq")
+deselected_panel = SubResource("StyleBoxFlat_y1qx7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_plrqq")
+expand_mode = 2
+
+[node name="Name" type="Label" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Name"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

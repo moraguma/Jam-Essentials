@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci85nbq81sqgh"]
+
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_b3xyh"]
+[ext_resource type="Script" uid="uid://bmlahn6rcmcgj" path="res://addons/jam_essentials/scenes/ui/scripts/Options.gd" id="1_kotvn"]
+[ext_resource type="Texture2D" uid="uid://cl01xmsdwo7v2" path="res://icon.png" id="2_5nwpc"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kotvn")
+tab_names = Array[String](["General", "Audio", "Video"])
+tab_icons = Array[Texture2D]([ExtResource("2_5nwpc"), ExtResource("2_5nwpc"), ExtResource("2_5nwpc")])
+
+[node name="Tabs" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b3xyh")
+
+[node name="Tabs2" type="HBoxContainer" parent="Panel"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 307.0
+offset_bottom = 4.0

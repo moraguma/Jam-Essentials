@@ -18,3 +18,8 @@ func check_and_error(check: bool, message: String):
 		push_error(message)
 		return true
 	return false
+
+
+## Time dependent lerp
+func tlerp(a, b, weight: float, delta: float):
+	return lerp(a, b, exp(-weight * delta))
