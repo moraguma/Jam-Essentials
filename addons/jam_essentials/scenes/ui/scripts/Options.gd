@@ -42,6 +42,8 @@ func _ready() -> void:
 			new_tab.deselect()
 		
 		tabs.append(new_tab)
+	if len(tabs) == 1:
+		active_tab_spacing = 1.0
 	inactive_tab_spacing = (1.0 - active_tab_spacing) / (len(tab_names) - 1) if len(tab_names) > 1 else 0.0
 	_tab_process(0.0)
 

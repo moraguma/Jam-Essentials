@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3oi30ut577fx"]
+
+[ext_resource type="Script" uid="uid://c131fl2dhek3m" path="res://addons/jam_essentials/scenes/autoloads/scripts/TranslationManager.gd" id="1_glm1m"]
+
+[node name="TranslationManager" type="Node"]
+script = ExtResource("1_glm1m")
