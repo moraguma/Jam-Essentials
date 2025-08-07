@@ -3,8 +3,10 @@ class_name Options
 
 
 const TAB_SCENE = preload("res://addons/jam_essentials/scenes/ui/Tab.tscn")
+const MENU_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsMenu.tscn")
 
 const TAB_TLERP_WEIGHT = 100.0
+const MENU_TLERP_WEIGHT = 100.0
 
 
 @export_category("Tabs")
@@ -17,6 +19,44 @@ var inactive_tab_spacing = 0.0
 @export var tab_names: Array[String]
 @export var tab_icons: Array[Texture2D]
 
+@export_category("Menus")
+## Array of menus represented as arrays. Each menu is composed as a list of
+## objects, each represented by a dictionary. The following object types are
+## supported:
+##
+## {
+##     "type": "button",
+##     "translation_code": "code",
+##     "func_to_call": ""
+## }
+##
+## {
+##     "type": "title",
+##     "translation_code": "code"
+## }
+##
+## {
+##     "type": "check_button",
+##     "translation_code": "code",
+##     "func_to_call": ""
+## }
+##
+## {
+##     "type": "dropdown_button",
+##     "translation_codes": ["code1", "code2"],
+##     "option_arguments": [arg1, arg2]
+##     "func_to_call": ""
+## }
+##
+## {
+##     "type": "slider",
+##     "translation_code": "code",
+##     "notches": -1 to +inf
+##     "func_to_call": ""
+## }
+@export var menu_specifications: Array[Array] = []
+var menus: Array[Control] = []
+
 
 var tabs: Array[Tab]
 var tab_progress: float = 1.0
@@ -25,6 +65,8 @@ var past_tab_pos: int = 0
 
 
 @onready var tab_container: Control = $Tabs
+@onready var main_panel: Panel = $MainPanel
+@onready var menu_container: HBoxContainer = $MainPanel/Menus
 
 
 func _ready() -> void:
@@ -46,6 +88,12 @@ func _ready() -> void:
 		active_tab_spacing = 1.0
 	inactive_tab_spacing = (1.0 - active_tab_spacing) / (len(tab_names) - 1) if len(tab_names) > 1 else 0.0
 	_tab_process(0.0)
+	
+	# Create menus
+	for i in range(len(tabs)):
+		var new_menu = MENU_SCENE.instantiate()
+		new_menu.custom_minimum_size = main_panel.size
+		menu_container.add_child(new_menu)
 
 
 func _physics_process(delta: float) -> void:
@@ -81,6 +129,8 @@ func _tab_process(delta: float) -> void:
 		
 		tabs[i].position[0] = total_spacing * tab_container.size[0]
 		total_spacing += spacing
+	
+	menu_container.position[0] = Globals.tlerp(menu_container.position[0], -current_tab_pos * main_panel.size[0], MENU_TLERP_WEIGHT, delta)
 
 
 ## Sets the given tab as current. If skip_animation is true, instantly 
