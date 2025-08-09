@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://p7xh65ggaeix"]
+
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_8e1t7"]
+[ext_resource type="Script" uid="uid://uhj4x717kng" path="res://addons/jam_essentials/scenes/ui/scripts/LocalizableToggleButton.gd" id="2_accft"]
+
+[node name="LocalizableToggleButton" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme = ExtResource("1_8e1t7")
+script = ExtResource("2_accft")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+grow_horizontal = 0
+grow_vertical = 2

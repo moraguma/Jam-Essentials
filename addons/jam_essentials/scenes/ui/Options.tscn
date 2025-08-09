@@ -23,6 +23,10 @@ menu_specifications = Array[Array]([[{
 "func_to_call": "test",
 "localization_code": "Test button",
 "type": "button"
+}, {
+"func_to_call": "test_toggle",
+"localization_code": "Test toggle",
+"type": "toggle_button"
 }], [], []])
 
 [node name="Tabs" type="Control" parent="."]

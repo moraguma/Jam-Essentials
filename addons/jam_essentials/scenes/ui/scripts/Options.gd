@@ -7,6 +7,7 @@ const MENU_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsMenu.ts
 
 const TITLE_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsTitle.tscn")
 const BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsButton.tscn")
+const TOGGLE_BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsToggleButton.tscn")
 
 const TAB_TLERP_WEIGHT = 100.0
 const MENU_TLERP_WEIGHT = 100.0
@@ -28,18 +29,18 @@ var inactive_tab_spacing = 0.0
 ## supported:
 ##
 ## {
+##     "type": "title",
+##     "localization_code": "code"
+## }
+##
+## {
 ##     "type": "button",
 ##     "localization_code": "code",
 ##     "func_to_call": ""
 ## }
 ##
 ## {
-##     "type": "title",
-##     "localization_code": "code"
-## }
-##
-## {
-##     "type": "check_button",
+##     "type": "toggle_button",
 ##     "localization_code": "code",
 ##     "func_to_call": ""
 ## }
@@ -114,7 +115,14 @@ func _ready() -> void:
 					new_button.pressed.connect(Callable(self, object["func_to_call"]))
 					new_menu_container.add_child(new_button)
 					
-					menu_focusables[i].append(new_button)
+					menu_focusables[i].append([new_button])
+				"toggle_button":
+					var new_toggle_button = TOGGLE_BUTTON_SCENE.instantiate()
+					new_toggle_button.localization_code = object["localization_code"]
+					new_toggle_button.get_node("CheckBox").toggled.connect(Callable(self, object["func_to_call"]))
+					new_menu_container.add_child(new_toggle_button)
+					
+					menu_focusables[i].append([new_toggle_button.get_node("CheckBox")])
 
 
 func _physics_process(delta: float) -> void:
@@ -171,3 +179,7 @@ func go_to_tab(pos: int, skip_animation: bool=false) -> void:
 
 func test():
 	print("hi")
+
+
+func test_toggle(state):
+	print("Hi - %s" % [state])
