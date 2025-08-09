@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjgfp2lfy6dh6"]
+
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_i3w31"]
+[ext_resource type="Script" uid="uid://c67wa03f7214v" path="res://addons/jam_essentials/scenes/ui/scripts/OptionsSlider.gd" id="2_i3w31"]
+
+[node name="OptionsDropdownButton" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme = ExtResource("1_i3w31")
+script = ExtResource("2_i3w31")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 1.0
+step = 0.001

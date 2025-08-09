@@ -9,6 +9,7 @@ const TITLE_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsTitle.
 const BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsButton.tscn")
 const TOGGLE_BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsToggleButton.tscn")
 const DROPDOWN_BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsDropdownButton.tscn")
+const SLIDER_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsSlider.tscn")
 
 const TAB_TLERP_WEIGHT = 100.0
 const MENU_TLERP_WEIGHT = 100.0
@@ -57,7 +58,7 @@ var inactive_tab_spacing = 0.0
 ## {
 ##     "type": "slider",
 ##     "localization_code": "code",
-##     "notches": -1 to +inf
+##     "notches": (optional) 2 to +inf
 ##     "func_to_call": ""
 ## }
 @export var menu_specifications: Array[Array] = []
@@ -134,6 +135,19 @@ func _ready() -> void:
 					new_menu_container.add_child(new_dropdown_button)
 					
 					menu_focusables[i].append([new_dropdown_button.get_node("OptionButton")])
+				"slider":
+					var new_slider = SLIDER_SCENE.instantiate()
+					var h_slider = new_slider.get_node("HSlider")
+					
+					new_slider.localization_code = object["localization_code"]
+					h_slider.value_changed.connect(Callable(self, object["func_to_call"]))
+					if "notches" in object:
+						h_slider.ticks_on_borders = true
+						h_slider.tick_count = object["notches"]
+						h_slider.step = 1.0 / (float(object["notches"]) - 1)
+					new_menu_container.add_child(new_slider)
+					
+					menu_focusables[i].append([h_slider])
 
 
 func _physics_process(delta: float) -> void:
@@ -198,3 +212,7 @@ func test_toggle(state):
 
 func test_dropdown(item):
 	print("Dropdown - %s" % [item])
+
+
+func test_slider(val):
+	print("Slider - %.2f" % [val])
