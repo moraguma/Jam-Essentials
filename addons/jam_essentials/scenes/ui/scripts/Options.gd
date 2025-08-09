@@ -4,7 +4,9 @@ class_name Options
 
 const TAB_SCENE = preload("res://addons/jam_essentials/scenes/ui/Tab.tscn")
 const MENU_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsMenu.tscn")
-const TITLE_SCENE = preload("res://addons/jam_essentials/scenes/ui/MenuTitle.tscn")
+
+const TITLE_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsTitle.tscn")
+const BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsButton.tscn")
 
 const TAB_TLERP_WEIGHT = 100.0
 const MENU_TLERP_WEIGHT = 100.0
@@ -106,6 +108,13 @@ func _ready() -> void:
 					var new_title = TITLE_SCENE.instantiate()
 					new_title.localization_code = object["localization_code"]
 					new_menu_container.add_child(new_title)
+				"button":
+					var new_button = BUTTON_SCENE.instantiate()
+					new_button.localization_code = object["localization_code"]
+					new_button.pressed.connect(Callable(self, object["func_to_call"]))
+					new_menu_container.add_child(new_button)
+					
+					menu_focusables[i].append(new_button)
 
 
 func _physics_process(delta: float) -> void:
@@ -158,3 +167,7 @@ func go_to_tab(pos: int, skip_animation: bool=false) -> void:
 	
 	tabs[current_tab_pos].select()
 	tab_progress = 1.0 if skip_animation else 0.0
+
+
+func test():
+	print("hi")

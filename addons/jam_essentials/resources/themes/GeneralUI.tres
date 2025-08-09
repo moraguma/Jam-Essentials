@@ -19,6 +19,7 @@ Button/constants/outline_size = 4
 Button/styles/focus = SubResource("StyleBoxEmpty_4736t")
 Button/styles/pressed = SubResource("StyleBoxEmpty_3f1jj")
 Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 48
 Panel/styles/panel = SubResource("StyleBoxFlat_x81gp")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
