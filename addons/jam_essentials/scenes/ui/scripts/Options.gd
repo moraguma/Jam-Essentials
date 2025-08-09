@@ -8,6 +8,7 @@ const MENU_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsMenu.ts
 const TITLE_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsTitle.tscn")
 const BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsButton.tscn")
 const TOGGLE_BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsToggleButton.tscn")
+const DROPDOWN_BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsDropdownButton.tscn")
 
 const TAB_TLERP_WEIGHT = 100.0
 const MENU_TLERP_WEIGHT = 100.0
@@ -47,8 +48,9 @@ var inactive_tab_spacing = 0.0
 ##
 ## {
 ##     "type": "dropdown_button",
+##     "title_localization_code": "code",
 ##     "localization_codes": ["code1", "code2"],
-##     "option_arguments": [arg1, arg2]
+##     "arguments": [arg1, arg2]
 ##     "func_to_call": ""
 ## }
 ##
@@ -123,6 +125,15 @@ func _ready() -> void:
 					new_menu_container.add_child(new_toggle_button)
 					
 					menu_focusables[i].append([new_toggle_button.get_node("CheckBox")])
+				"dropdown_button":
+					var new_dropdown_button = DROPDOWN_BUTTON_SCENE.instantiate()
+					new_dropdown_button.title_localization_code = object["title_localization_code"]
+					new_dropdown_button.localization_codes = object["localization_codes"]
+					new_dropdown_button.arguments = object["arguments"]
+					new_dropdown_button.select_item.connect(Callable(self, object["func_to_call"]))
+					new_menu_container.add_child(new_dropdown_button)
+					
+					menu_focusables[i].append([new_dropdown_button.get_node("OptionButton")])
 
 
 func _physics_process(delta: float) -> void:
@@ -183,3 +194,7 @@ func test():
 
 func test_toggle(state):
 	print("Hi - %s" % [state])
+
+
+func test_dropdown(item):
+	print("Dropdown - %s" % [item])

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca4qeo3k2vkps"]
+
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_mog1g"]
+[ext_resource type="Script" uid="uid://f6td7srfkxre" path="res://addons/jam_essentials/scenes/ui/scripts/LocalizableDropdownButton.gd" id="2_mog1g"]
+
+[node name="OptionsDropdownButton" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme = ExtResource("1_mog1g")
+script = ExtResource("2_mog1g")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+grow_horizontal = 0
+grow_vertical = 2
+flat = true
