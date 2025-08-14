@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Nathan Hoad's Input Helper
 addons/input_helper
+
+# Kenney
+addons/jam_essentials/resources/kenney/*
+!addons/jam_essentials/resources/kenney/README
