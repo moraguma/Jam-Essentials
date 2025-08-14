@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci85nbq81sqgh"]
+[gd_scene load_steps=5 format=3 uid="uid://ci85nbq81sqgh"]
 
 [ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_b3xyh"]
 [ext_resource type="Script" uid="uid://bmlahn6rcmcgj" path="res://addons/jam_essentials/scenes/ui/scripts/Options.gd" id="1_kotvn"]
-[ext_resource type="Texture2D" uid="uid://cl01xmsdwo7v2" path="res://icon.png" id="2_5nwpc"]
 [ext_resource type="PackedScene" uid="uid://q8mlsv548xun" path="res://addons/jam_essentials/scenes/ui/TabsContainer.tscn" id="4_hjgkg"]
 [ext_resource type="PackedScene" uid="uid://bgqwgb05hk6vi" path="res://addons/jam_essentials/scenes/ui/OptionsMenu.tscn" id="5_hkdq4"]
 
@@ -21,8 +20,6 @@ script = ExtResource("1_kotvn")
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.1
-tab_names = Array[String](["General", "Video", "Audio"])
-tab_icons = Array[Texture2D]([ExtResource("2_5nwpc"), ExtResource("2_5nwpc"), ExtResource("2_5nwpc")])
 menu_container = NodePath("../MainPanel/Menus")
 menus = [NodePath("../MainPanel/Menus/General"), NodePath("../MainPanel/Menus/Video"), NodePath("../MainPanel/Menus/Audio")]
 
