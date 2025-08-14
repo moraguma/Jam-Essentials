@@ -9,9 +9,13 @@ const BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsButto
 const TOGGLE_BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsToggleButton.tscn")
 const DROPDOWN_BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsDropdownButton.tscn")
 const SLIDER_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsSlider.tscn")
+const INPUT_CHANGER_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsInputChanger.tscn")
 
 
 @export_category("Menus")
+
+@export var menu_base: Control
+
 ## Array of menus represented as arrays. Each menu is composed as a list of
 ## objects, each represented by a dictionary. The following object types are
 ## supported:
@@ -49,6 +53,12 @@ const SLIDER_SCENE = preload("res://addons/jam_essentials/scenes/ui/OptionsSlide
 ##     "notches": (optional) 2 to +inf
 ##     "func_to_call": "",
 ##     "func_to_set": ""
+## }
+##
+## {
+##     "type": "input_changer",
+##     "actions": ["action_1", ["action_2", "action_2_alt"], "action_3"]
+##     "inputs_per_action": 1 to 4
 ## }
 @export var menu_specifications: Array[Dictionary] = []
 @export var match_size: Control = null
@@ -113,21 +123,35 @@ func _ready() -> void:
 				menu_container.add_child(new_slider)
 				
 				add_focusables([h_slider])
+			"input_changer":
+				for action_arr in object["actions"]:
+					if action_arr is String:
+						action_arr = [action_arr]
+					
+					var new_input_changer: OptionsInputChanger = INPUT_CHANGER_SCENE.instantiate()
+					new_input_changer.menu_base = menu_base
+					new_input_changer.actions = action_arr
+					new_input_changer.total_buttons = object["inputs_per_action"]
+					menu_container.add_child(new_input_changer)
+					
+					add_focusables(new_input_changer.input_button_container.get_children())
 	
 	# Create neighbor connections
 	for i in range(len(menu_focusables)):
 		for j in range(len(menu_focusables[i])):
 			# Top and bottom
-			if i > 0:
-				menu_focusables[i][j].focus_neighbor_top = menu_focusables[i][j].get_path_to(menu_focusables[i - 1][min(len(menu_focusables[i - 1]) - 1, j)])
-			if i < len(menu_focusables) - 1:
-				menu_focusables[i][j].focus_neighbor_bottom = menu_focusables[i][j].get_path_to(menu_focusables[i + 1][min(len(menu_focusables[i + 1]) - 1, j)])
+			var top = menu_focusables[i - 1][min(len(menu_focusables[i - 1]) - 1, j)] if i > 0 else menu_focusables[i][j]
+			menu_focusables[i][j].focus_neighbor_top = menu_focusables[i][j].get_path_to(top)
+			
+			var bottom = menu_focusables[i + 1][min(len(menu_focusables[i + 1]) - 1, j)] if i < len(menu_focusables) - 1 else menu_focusables[i][j]
+			menu_focusables[i][j].focus_neighbor_bottom = menu_focusables[i][j].get_path_to(bottom)
 			
 			# Left and right
-			if j > 0:
-				menu_focusables[i][j].focus_neighbor_left = menu_focusables[i][j].get_path_to(menu_focusables[i][j - 1])
-			if j < len(menu_focusables[i]) - 1:
-				menu_focusables[i][j].focus_neighbor_right = menu_focusables[i][j].get_path_to(menu_focusables[i][j + 1])
+			var left = menu_focusables[i][j - 1] if j > 0 else menu_focusables[i][j]
+			menu_focusables[i][j].focus_neighbor_left = menu_focusables[i][j].get_path_to(left)
+			
+			var right = menu_focusables[i][j + 1] if j < len(menu_focusables[i]) - 1 else menu_focusables[i][j]
+			menu_focusables[i][j].focus_neighbor_right = menu_focusables[i][j].get_path_to(right)
 
 
 ## Should be called when this menu shows on screen

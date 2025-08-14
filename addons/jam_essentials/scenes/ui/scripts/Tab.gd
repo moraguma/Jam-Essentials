@@ -5,8 +5,8 @@ class_name Tab
 signal clicked
 
 
-@export var selected_panel: StyleBox
-@export var deselected_panel: StyleBox
+@onready var selected_panel: StyleBox = theme.get_stylebox("selected_tab", "Tab")
+@onready var deselected_panel: StyleBox = theme.get_stylebox("deselected_tab", "Tab")
 
 
 @onready var icon: TextureRect = $HBoxContainer/Icon

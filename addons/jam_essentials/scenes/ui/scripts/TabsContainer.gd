@@ -26,9 +26,12 @@ var tabs: Array[Tab]
 var tab_progress: float = 1.0
 var current_tab_pos: int = 0
 var past_tab_pos: int = 0
+var blocked = false
 
 
 func _ready() -> void:
+	add_to_group("ui_blockable")
+	
 	# Create tabs
 	for i in range(len(tab_names)):
 		var new_tab: Tab = TAB_SCENE.instantiate()
@@ -50,6 +53,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if blocked:
+		return
+	
 	if Input.is_action_just_pressed(tab_left_input):
 		var pos = current_tab_pos - 1
 		if pos < 0:
@@ -100,3 +106,13 @@ func go_to_tab(pos: int, skip_animation: bool=false) -> void:
 	tabs[current_tab_pos].select()
 	menus[current_tab_pos].activate()
 	tab_progress = 1.0 if skip_animation else 0.0
+
+
+## Disallows UI to be interacted with
+func block() -> void:
+	blocked = true
+
+
+## Allows UI to be interacted with
+func unblock() -> void:
+	blocked = false

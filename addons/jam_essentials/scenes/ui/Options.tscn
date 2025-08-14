@@ -44,8 +44,30 @@ offset_right = 307.0
 offset_bottom = 4.0
 theme_override_constants/separation = 0
 
-[node name="General" parent="MainPanel/Menus" node_paths=PackedStringArray("match_size") instance=ExtResource("5_hkdq4")]
+[node name="General" parent="MainPanel/Menus" node_paths=PackedStringArray("menu_base", "match_size") instance=ExtResource("5_hkdq4")]
 layout_mode = 2
+menu_base = NodePath("../../..")
+menu_specifications = Array[Dictionary]([{
+"localization_code": "Title of the menu",
+"type": "title"
+}, {
+"func_to_call": "toggle_test",
+"localization_code": "Option 1",
+"type": "toggle_button"
+}, {
+"func_to_call": "toggle_test",
+"localization_code": "Options 2",
+"type": "toggle_button"
+}, {
+"actions": ["ui_up", "ui_right", "ui_down", "ui_left"],
+"inputs_per_action": 2,
+"type": "input_changer"
+}])
+match_size = NodePath("../..")
+
+[node name="Video" parent="MainPanel/Menus" node_paths=PackedStringArray("menu_base", "match_size") instance=ExtResource("5_hkdq4")]
+layout_mode = 2
+menu_base = NodePath("../../..")
 menu_specifications = Array[Dictionary]([{
 "localization_code": "Title of the menu",
 "type": "title"
@@ -60,24 +82,9 @@ menu_specifications = Array[Dictionary]([{
 }])
 match_size = NodePath("../..")
 
-[node name="Video" parent="MainPanel/Menus" node_paths=PackedStringArray("match_size") instance=ExtResource("5_hkdq4")]
+[node name="Audio" parent="MainPanel/Menus" node_paths=PackedStringArray("menu_base", "match_size") instance=ExtResource("5_hkdq4")]
 layout_mode = 2
-menu_specifications = Array[Dictionary]([{
-"localization_code": "Title of the menu",
-"type": "title"
-}, {
-"func_to_call": "toggle_test",
-"localization_code": "Option 1",
-"type": "toggle_button"
-}, {
-"func_to_call": "toggle_test",
-"localization_code": "Options 2",
-"type": "toggle_button"
-}])
-match_size = NodePath("../..")
-
-[node name="Audio" parent="MainPanel/Menus" node_paths=PackedStringArray("match_size") instance=ExtResource("5_hkdq4")]
-layout_mode = 2
+menu_base = NodePath("../../..")
 menu_specifications = Array[Dictionary]([{
 "localization_code": "Title of the menu",
 "type": "title"

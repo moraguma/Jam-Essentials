@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpanqpi6shgmg"]
+
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_r6b7q"]
+[ext_resource type="Script" uid="uid://drbfkj4648qw1" path="res://addons/jam_essentials/scenes/ui/scripts/OptionsInputChanger.gd" id="2_qdf20"]
+
+[node name="OptionsInputChanger" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme = ExtResource("1_r6b7q")
+script = ExtResource("2_qdf20")
+actions = ["ui_up"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2

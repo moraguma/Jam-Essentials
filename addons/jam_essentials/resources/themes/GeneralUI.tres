@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cyuafkmqgdlvi"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cyuafkmqgdlvi"]
 
 [ext_resource type="FontFile" uid="uid://esnv0ha5j62q" path="res://addons/jam_essentials/resources/fonts/grapesoda_2/GrapeSoda.ttf" id="1_hgwvf"]
 
@@ -7,7 +7,17 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3f1jj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x81gp"]
+bg_color = Color(0.393086, 0.393086, 0.393085, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83kp4"]
+bg_color = Color(0.713726, 0.713726, 0.713726, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ponxp"]
 bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
 
 [resource]
 default_font = ExtResource("1_hgwvf")
@@ -24,3 +34,6 @@ Panel/styles/panel = SubResource("StyleBoxFlat_x81gp")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/outline_size = 4
+Tab/styles/deselected_tab = SubResource("StyleBoxFlat_83kp4")
+Tab/styles/selected_tab = SubResource("StyleBoxFlat_ponxp")
+VBoxContainer/constants/separation = 24

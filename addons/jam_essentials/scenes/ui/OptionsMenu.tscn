@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgqwgb05hk6vi"]
+[gd_scene load_steps=3 format=3 uid="uid://bgqwgb05hk6vi"]
 
 [ext_resource type="Script" uid="uid://cau7jy155utd5" path="res://addons/jam_essentials/scenes/ui/scripts/OptionsMenu.gd" id="1_0544y"]
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_c8r06"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_c8r06")
 script = ExtResource("1_0544y")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -20,6 +22,7 @@ anchor_right = 0.8
 anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
+follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2

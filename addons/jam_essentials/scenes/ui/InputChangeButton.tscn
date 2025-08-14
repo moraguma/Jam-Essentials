@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dto3g2ldcy7ir"]
+
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_c83m6"]
+[ext_resource type="Script" uid="uid://d0yxwtax8ycm6" path="res://addons/jam_essentials/scenes/ui/scripts/InputChangeButton.gd" id="2_xl151"]
+[ext_resource type="PackedScene" uid="uid://bytw8x327a2uj" path="res://addons/jam_essentials/scenes/ui/InputDisplay.tscn" id="3_xl151"]
+
+[node name="InputChangeButton" type="Button" node_paths=PackedStringArray("menu_base")]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("1_c83m6")
+script = ExtResource("2_xl151")
+actions = ["ui_up"]
+menu_base = NodePath(".")
+
+[node name="InputDisplay" parent="." instance=ExtResource("3_xl151")]
+layout_mode = 0

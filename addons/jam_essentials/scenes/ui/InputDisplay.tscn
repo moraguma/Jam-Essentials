@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bytw8x327a2uj"]
+
+[ext_resource type="Script" uid="uid://etnn2ymfmf2k" path="res://addons/jam_essentials/scenes/ui/scripts/InputDisplay.gd" id="1_v1lqs"]
+
+[node name="InputDisplay" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_v1lqs")
+action = "ui_up"
