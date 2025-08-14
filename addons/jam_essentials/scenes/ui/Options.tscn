@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci85nbq81sqgh"]
+[gd_scene load_steps=10 format=3 uid="uid://ci85nbq81sqgh"]
 
 [ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_b3xyh"]
 [ext_resource type="Script" uid="uid://bmlahn6rcmcgj" path="res://addons/jam_essentials/scenes/ui/scripts/Options.gd" id="1_kotvn"]
 [ext_resource type="Texture2D" uid="uid://cl01xmsdwo7v2" path="res://icon.png" id="2_5nwpc"]
 [ext_resource type="PackedScene" uid="uid://q8mlsv548xun" path="res://addons/jam_essentials/scenes/ui/TabsContainer.tscn" id="4_hjgkg"]
 [ext_resource type="PackedScene" uid="uid://bgqwgb05hk6vi" path="res://addons/jam_essentials/scenes/ui/OptionsMenu.tscn" id="5_hkdq4"]
+[ext_resource type="PackedScene" uid="uid://ca4qeo3k2vkps" path="res://addons/jam_essentials/scenes/ui/OptionsDropdownButton.tscn" id="6_hkdq4"]
+[ext_resource type="PackedScene" uid="uid://p7xh65ggaeix" path="res://addons/jam_essentials/scenes/ui/OptionsToggleButton.tscn" id="7_nixnt"]
+[ext_resource type="PackedScene" uid="uid://cjgfp2lfy6dh6" path="res://addons/jam_essentials/scenes/ui/OptionsSlider.tscn" id="8_a1apg"]
+[ext_resource type="PackedScene" uid="uid://bpanqpi6shgmg" path="res://addons/jam_essentials/scenes/ui/OptionsInputChanger.tscn" id="9_fqyvg"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -21,10 +25,10 @@ script = ExtResource("1_kotvn")
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.1
-tab_names = Array[String](["General", "Video", "Audio"])
-tab_icons = Array[Texture2D]([ExtResource("2_5nwpc"), ExtResource("2_5nwpc"), ExtResource("2_5nwpc")])
+tab_names = Array[String](["General", "Video", "Audio", "Controls"])
+tab_icons = Array[Texture2D]([ExtResource("2_5nwpc"), ExtResource("2_5nwpc"), ExtResource("2_5nwpc"), ExtResource("2_5nwpc")])
 menu_container = NodePath("../MainPanel/Menus")
-menus = [NodePath("../MainPanel/Menus/General"), NodePath("../MainPanel/Menus/Video"), NodePath("../MainPanel/Menus/Audio")]
+menus = [NodePath("../MainPanel/Menus/General"), NodePath("../MainPanel/Menus/Video"), NodePath("../MainPanel/Menus/Audio"), NodePath("../MainPanel/Menus/Controls")]
 
 [node name="MainPanel" type="Panel" parent="."]
 clip_children = 2
@@ -44,57 +48,95 @@ offset_right = 307.0
 offset_bottom = 4.0
 theme_override_constants/separation = 0
 
-[node name="General" parent="MainPanel/Menus" node_paths=PackedStringArray("menu_base", "match_size") instance=ExtResource("5_hkdq4")]
+[node name="General" parent="MainPanel/Menus" instance=ExtResource("5_hkdq4")]
+custom_minimum_size = Vector2(1536, 777.6)
 layout_mode = 2
-menu_base = NodePath("../../..")
-menu_specifications = Array[Dictionary]([{
-"localization_code": "Title of the menu",
-"type": "title"
-}, {
-"func_to_call": "toggle_test",
-"localization_code": "Option 1",
-"type": "toggle_button"
-}, {
-"func_to_call": "toggle_test",
-"localization_code": "Options 2",
-"type": "toggle_button"
-}, {
-"actions": ["ui_up", "ui_right", "ui_down", "ui_left"],
-"inputs_per_action": 2,
-"type": "input_changer"
-}])
-match_size = NodePath("../..")
 
-[node name="Video" parent="MainPanel/Menus" node_paths=PackedStringArray("menu_base", "match_size") instance=ExtResource("5_hkdq4")]
+[node name="Language" parent="MainPanel/Menus/General/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("6_hkdq4")]
 layout_mode = 2
-menu_base = NodePath("../../..")
-menu_specifications = Array[Dictionary]([{
-"localization_code": "Title of the menu",
-"type": "title"
-}, {
-"func_to_call": "toggle_test",
-"localization_code": "Option 1",
-"type": "toggle_button"
-}, {
-"func_to_call": "toggle_test",
-"localization_code": "Options 2",
-"type": "toggle_button"
-}])
-match_size = NodePath("../..")
+title_localization_code = "Language"
+localization_codes = Array[String](["English", "Português"])
+arguments = ["en", "pt"]
+func_to_call = "set_locale"
+func_to_set = "get_locale"
 
-[node name="Audio" parent="MainPanel/Menus" node_paths=PackedStringArray("menu_base", "match_size") instance=ExtResource("5_hkdq4")]
+[node name="Video" parent="MainPanel/Menus" instance=ExtResource("5_hkdq4")]
+custom_minimum_size = Vector2(1536, 777.6)
 layout_mode = 2
-menu_base = NodePath("../../..")
-menu_specifications = Array[Dictionary]([{
-"localization_code": "Title of the menu",
-"type": "title"
-}, {
-"func_to_call": "toggle_test",
-"localization_code": "Option 1",
-"type": "toggle_button"
-}, {
-"func_to_call": "toggle_test",
-"localization_code": "Options 2",
-"type": "toggle_button"
-}])
-match_size = NodePath("../..")
+
+[node name="Fullscreen" parent="MainPanel/Menus/Video/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("7_nixnt")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+localization_code = "Fullscreen"
+func_to_call = "set_fullscreen"
+func_to_set = "get_fullscreen"
+
+[node name="Resolution" parent="MainPanel/Menus/Video/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("6_hkdq4")]
+layout_mode = 2
+title_localization_code = "Resolution"
+localization_codes = Array[String](["640x360", "960x540", "1920x1080"])
+arguments = [Vector2i(640, 360), Vector2i(960, 540), Vector2i(1920, 1080)]
+func_to_call = "set_resolution"
+func_to_set = "get_resolution"
+
+[node name="Audio" parent="MainPanel/Menus" instance=ExtResource("5_hkdq4")]
+custom_minimum_size = Vector2(1536, 777.6)
+layout_mode = 2
+
+[node name="Master" parent="MainPanel/Menus/Audio/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("8_a1apg")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+localization_code = "Master"
+func_to_call = "set_bus_vol"
+call_binds = [0]
+func_to_set = "get_bus_vol"
+set_binds = [0]
+notches = 6
+
+[node name="Music" parent="MainPanel/Menus/Audio/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("8_a1apg")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+localization_code = "Music"
+func_to_call = "set_bus_vol"
+call_binds = [1]
+func_to_set = "get_bus_vol"
+set_binds = [1]
+notches = 6
+
+[node name="SFX" parent="MainPanel/Menus/Audio/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("8_a1apg")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+localization_code = "SFX"
+func_to_call = "set_bus_vol"
+call_binds = [2]
+func_to_set = "get_bus_vol"
+set_binds = [2]
+notches = 6
+
+[node name="Controls" parent="MainPanel/Menus" instance=ExtResource("5_hkdq4")]
+custom_minimum_size = Vector2(1536, 777.6)
+layout_mode = 2
+
+[node name="Up" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="0" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_fqyvg")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+
+[node name="Right" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="1" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_fqyvg")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["ui_right"])
+
+[node name="Down" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="2" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_fqyvg")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["ui_down"])
+
+[node name="Left" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="3" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_fqyvg")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["ui_left"])
+
+[editable path="MainPanel/Menus/General"]
+[editable path="MainPanel/Menus/Video"]
+[editable path="MainPanel/Menus/Audio"]
+[editable path="MainPanel/Menus/Controls"]

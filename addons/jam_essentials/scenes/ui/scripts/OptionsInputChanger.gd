@@ -1,3 +1,4 @@
+@tool
 extends Control
 class_name OptionsInputChanger
 
@@ -6,7 +7,11 @@ const INPUT_CHANGE_BUTTON_SCENE = preload("res://addons/jam_essentials/scenes/ui
 
 
 @export var menu_base: Control
-@export var actions: Array
+@export var actions: Array[String]:
+	set(val):
+		actions = val
+		if label != null:
+			localize()
 @export var total_buttons: int = 2
 
 
@@ -26,6 +31,10 @@ func _ready() -> void:
 		input_button_container.add_child(new_button)
 	
 	custom_minimum_size[1] = label.size[1]
+
+
+func get_focusables() -> Array:
+	return input_button_container.get_children() as Array[Control]
 
 
 func localize() -> void:

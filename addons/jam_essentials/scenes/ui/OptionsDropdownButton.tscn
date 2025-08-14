@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca4qeo3k2vkps"]
 
 [ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_mog1g"]
-[ext_resource type="Script" uid="uid://f6td7srfkxre" path="res://addons/jam_essentials/scenes/ui/scripts/LocalizableDropdownButton.gd" id="2_mog1g"]
+[ext_resource type="Script" uid="uid://gramxh0smp4r" path="res://addons/jam_essentials/scenes/ui/scripts/OptionsDropdownButton.gd" id="2_mog1g"]
 
 [node name="OptionsDropdownButton" type="Control"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0

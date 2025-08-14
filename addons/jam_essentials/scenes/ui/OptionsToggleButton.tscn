@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://p7xh65ggaeix"]
 
 [ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_8e1t7"]
-[ext_resource type="Script" uid="uid://uhj4x717kng" path="res://addons/jam_essentials/scenes/ui/scripts/LocalizableToggleButton.gd" id="2_accft"]
+[ext_resource type="Script" uid="uid://kxcg3yew3sm3" path="res://addons/jam_essentials/scenes/ui/scripts/OptionsToggleButton.gd" id="2_8e1t7"]
 
-[node name="LocalizableToggleButton" type="Control"]
+[node name="OptionsToggleButton" type="Control"]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 48.0
 grow_horizontal = 2
 theme = ExtResource("1_8e1t7")
-script = ExtResource("2_accft")
+script = ExtResource("2_8e1t7")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

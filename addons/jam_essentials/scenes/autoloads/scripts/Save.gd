@@ -14,6 +14,10 @@ var last_time: int
 var time_paused: bool = false
 
 
+@export var enable_autosave: bool = true
+@export var enable_options_autosave: bool = true
+
+
 func _ready():
 	load_options()
 
@@ -153,6 +157,9 @@ func get_save_data(path: Array):
 ## file system requires calling save_game()
 func set_save_data(path: Array, val):
 	set_data(save, path, val)
+	
+	if enable_autosave:
+		save_game()
 
 
 ## Erases the entry given by path in the specified save path. Saving it to the 
@@ -165,6 +172,9 @@ func erase_save_data(path: Array):
 ## path_prefix > path[i] to vals[i]
 func set_save_datas(paths: Array, vals: Array, path_prefix: Array=[]):
 	set_datas(save, paths, vals, path_prefix)
+	
+	if enable_autosave:
+		save_game()
 
 
 ## Return the flag specified by the array. If the array is, for instance, 
@@ -231,6 +241,11 @@ func load_options():
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 	set_fullscreen(get_options_data(["video", "fullscreen"]))
+	
+	# Apply audio settings
+	var volumes = get_options_data(["audio", "volumes"])
+	for bus_idx in volumes:
+		AudioServer.set_bus_volume_db(int(bus_idx), linear_to_db(volumes[bus_idx]))
 
 
 ## Saves the current state of options to the file system
@@ -250,12 +265,18 @@ func get_options_data(path: Array):
 ## file system requires calling save_game()
 func set_options_data(path: Array, val):
 	set_data(options, path, val)
+	
+	if enable_options_autosave:
+		save_options()
 
 
 ## Sets multiple values for multiple data paths in save. For each i, will set 
 ## path_prefix > path[i] to vals[i]
 func set_options_datas(paths: Array, vals: Array, path_prefix: Array=[]):
 	set_datas(options, paths, vals, path_prefix)
+	
+	if enable_options_autosave:
+		save_options()
 
 # General settings -------------------------------------------------------------
 ## Sets the new locale value and updates translatable elements
@@ -302,7 +323,7 @@ func get_fullscreen() -> bool:
 
 ## Changes the game's resolution
 func set_resolution(size: Vector2i) -> void:
-	set_options_data(["video", "resolution"], size)
+	set_options_data(["video", "resolution"], [size[0], size[1]])
 	DisplayServer.window_set_size(size)
 	
 	# Center window
@@ -314,7 +335,8 @@ func set_resolution(size: Vector2i) -> void:
 
 ## Returns the game's resolution
 func get_resolution() -> Vector2i:
-	return get_options_data(["video", "resolution"])
+	var res_arr = get_options_data(["video", "resolution"])
+	return Vector2i(res_arr[0], res_arr[1])
 
 
 # Controls ---------------------------------------------------------------------
@@ -339,4 +361,10 @@ func reset_controls() -> void:
 ## is converted into db
 func set_bus_vol(vol: float, bus_idx: int) -> void:
 	AudioServer.set_bus_volume_db(bus_idx, linear_to_db(vol))
+	set_options_data(["audio", "volumes", str(bus_idx)], vol)
+
+
+## Returns the bus volume for a particular bus
+func get_bus_vol(bus_idx: int) -> float:
+	return get_options_data(["audio", "volumes", str(bus_idx)])
 #endregion

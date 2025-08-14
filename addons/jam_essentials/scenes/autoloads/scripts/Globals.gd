@@ -21,6 +21,14 @@ func _ready() -> void:
 	Save.load_options()
 
 
+## Creates a callable for method func_name in object bound to the binds array
+func create_callable(object: Object, func_name: String, binds: Array) -> Callable:
+	var callable: Callable = Callable(object, func_name)
+	if len(binds) > 0:
+		callable = callable.bindv(binds)
+	return callable
+
+
 ## If the given check is true, pushes a warning message and returns true.
 ## Otherwise, returns false
 func check_and_error(check: bool, message: String):

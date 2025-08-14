@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://lduuj4o3od2p"]
 
 [ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_j4stj"]
-[ext_resource type="Script" uid="uid://cl6uc5kjayljx" path="res://addons/jam_essentials/scenes/ui/scripts/LocalizableButton.gd" id="2_wy7mk"]
+[ext_resource type="Script" uid="uid://t5qk1wrtxlcp" path="res://addons/jam_essentials/scenes/ui/scripts/OptionsButton.gd" id="2_j4stj"]
 
 [node name="OptionsButton" type="Button"]
 anchors_preset = 10
@@ -10,4 +10,4 @@ offset_bottom = 48.0
 grow_horizontal = 2
 theme = ExtResource("1_j4stj")
 flat = true
-script = ExtResource("2_wy7mk")
+script = ExtResource("2_j4stj")

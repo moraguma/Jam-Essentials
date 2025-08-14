@@ -60,6 +60,7 @@ func assign_event(event):
 				InputHelper.replace_keyboard_input_at_index(action, idx, event, i == 0)
 			else:
 				InputHelper.replace_joypad_input_at_index(action, idx, event, i == 0)
+	Save.set_controls()
 
 
 func _focus_entered() -> void:

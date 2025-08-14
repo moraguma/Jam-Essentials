@@ -6,5 +6,10 @@ class_name LocalizableButton
 
 
 func _ready() -> void:
-	text = tr(localization_code)
 	add_to_group("localizable")
+	
+	localize()
+
+
+func localize() -> void:
+	text = tr(localization_code)

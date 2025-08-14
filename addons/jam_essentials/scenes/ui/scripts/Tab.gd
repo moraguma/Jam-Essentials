@@ -5,18 +5,28 @@ class_name Tab
 signal clicked
 
 
+var translation_code: String 
+
+
 @onready var selected_panel: StyleBox = theme.get_stylebox("selected_tab", "Tab")
 @onready var deselected_panel: StyleBox = theme.get_stylebox("deselected_tab", "Tab")
-
 
 @onready var icon: TextureRect = $HBoxContainer/Icon
 @onready var tab_label: Label = $HBoxContainer/Name
 
 
 ## Names and sets icon
-func initialize(tab_name: String, icon_texture: Texture2D) -> void:
+func initialize(tab_translation_code: String, icon_texture: Texture2D) -> void:
+	add_to_group("localizable")
+	
+	translation_code = tab_translation_code
 	icon.texture = icon_texture
-	tab_label.name = tab_name
+	
+	localize()
+
+
+func localize() -> void:
+	tab_label.text = tr(translation_code)
 
 
 ## Called when this tab is selected

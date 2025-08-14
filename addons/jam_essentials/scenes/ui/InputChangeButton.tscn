@@ -1,13 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://dto3g2ldcy7ir"]
+[gd_scene load_steps=15 format=3 uid="uid://dto3g2ldcy7ir"]
 
 [ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_c83m6"]
 [ext_resource type="Script" uid="uid://d0yxwtax8ycm6" path="res://addons/jam_essentials/scenes/ui/scripts/InputChangeButton.gd" id="2_xl151"]
 [ext_resource type="PackedScene" uid="uid://bytw8x327a2uj" path="res://addons/jam_essentials/scenes/ui/InputDisplay.tscn" id="3_xl151"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xl151"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48hnh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7sxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xa8xl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8dk6h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p3bia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ftmw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvdho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy1j3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_narqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8oc7"]
+
 [node name="InputChangeButton" type="Button" node_paths=PackedStringArray("menu_base")]
 offset_right = 8.0
 offset_bottom = 8.0
 theme = ExtResource("1_c83m6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xl151")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_48hnh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q7sxb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xa8xl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8dk6h")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_p3bia")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5ftmw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mvdho")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dy1j3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_narqp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t8oc7")
+flat = true
 script = ExtResource("2_xl151")
 actions = ["ui_up"]
 menu_base = NodePath(".")
