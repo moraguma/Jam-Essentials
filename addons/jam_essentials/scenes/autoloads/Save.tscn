@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fv5n3baoa36u"]
+
+[ext_resource type="Script" uid="uid://cyfjate7sgxp4" path="res://addons/jam_essentials/scenes/autoloads/scripts/Save.gd" id="1_l6yr4"]
+
+[node name="Save" type="Node"]
+script = ExtResource("1_l6yr4")

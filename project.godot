@@ -22,6 +22,7 @@ GlobalCamera="*res://addons/jam_essentials/scenes/autoloads/GlobalCamera.tscn"
 SoundController="*res://addons/jam_essentials/scenes/autoloads/SoundController.tscn"
 Globals="*res://addons/jam_essentials/scenes/autoloads/Globals.tscn"
 InputHelper="*res://addons/input_helper/input_helper.gd"
+Save="*res://addons/jam_essentials/scenes/autoloads/Save.tscn"
 
 [display]
 

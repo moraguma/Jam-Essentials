@@ -1,0 +1,13 @@
+{
+	"version": 0.1,
+	"video": {
+		"resolution": [960, 540],
+		"fullscreen": false
+	},
+	"audio": {
+		
+	},
+	"controls": {
+		
+	}
+}
