@@ -6,5 +6,6 @@
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+stretch_mode = 3
 script = ExtResource("1_v1lqs")
 action = "ui_up"

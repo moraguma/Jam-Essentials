@@ -1,0 +1,189 @@
+[gd_scene load_steps=12 format=3 uid="uid://b345xl8nx1o3x"]
+
+[ext_resource type="Theme" uid="uid://cyuafkmqgdlvi" path="res://addons/jam_essentials/resources/themes/GeneralUI.tres" id="1_amjyb"]
+[ext_resource type="Script" uid="uid://bmlahn6rcmcgj" path="res://example/scenes/scripts/Options.gd" id="2_omph4"]
+[ext_resource type="PackedScene" uid="uid://q8mlsv548xun" path="res://addons/jam_essentials/scenes/ui/TabsContainer.tscn" id="3_oqkkk"]
+[ext_resource type="Texture2D" uid="uid://cl01xmsdwo7v2" path="res://icon.png" id="4_kspe5"]
+[ext_resource type="PackedScene" uid="uid://bgqwgb05hk6vi" path="res://addons/jam_essentials/scenes/ui/OptionsMenu.tscn" id="5_fi0my"]
+[ext_resource type="PackedScene" uid="uid://ca4qeo3k2vkps" path="res://addons/jam_essentials/scenes/ui/OptionsDropdownButton.tscn" id="6_lk23j"]
+[ext_resource type="PackedScene" uid="uid://p7xh65ggaeix" path="res://addons/jam_essentials/scenes/ui/OptionsToggleButton.tscn" id="7_wycbr"]
+[ext_resource type="PackedScene" uid="uid://cjgfp2lfy6dh6" path="res://addons/jam_essentials/scenes/ui/OptionsSlider.tscn" id="8_iq7gq"]
+[ext_resource type="PackedScene" uid="uid://bpanqpi6shgmg" path="res://addons/jam_essentials/scenes/ui/OptionsInputChanger.tscn" id="9_miovx"]
+[ext_resource type="PackedScene" uid="uid://bytw8x327a2uj" path="res://addons/jam_essentials/scenes/ui/InputDisplay.tscn" id="10_omph4"]
+[ext_resource type="Texture2D" uid="uid://biqemmwkbjpfa" path="res://addons/jam_essentials/resources/kenney/Keyboard & Mouse/Default/keyboard_question.png" id="11_oqkkk"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amjyb")
+script = ExtResource("2_omph4")
+
+[node name="TabsContainer" parent="." node_paths=PackedStringArray("menu_container", "menus") instance=ExtResource("3_oqkkk")]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.1
+tab_left_input = "prev"
+tab_right_input = "next"
+tab_names = Array[String](["General", "Video", "Audio", "Controls"])
+tab_icons = Array[Texture2D]([ExtResource("4_kspe5"), ExtResource("4_kspe5"), ExtResource("4_kspe5"), ExtResource("4_kspe5")])
+menu_container = NodePath("../MainPanel/Menus")
+menus = [NodePath("../MainPanel/Menus/General"), NodePath("../MainPanel/Menus/Video"), NodePath("../MainPanel/Menus/Audio"), NodePath("../MainPanel/Menus/Controls")]
+
+[node name="MainPanel" type="Panel" parent="."]
+clip_children = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amjyb")
+
+[node name="Menus" type="HBoxContainer" parent="MainPanel"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 307.0
+offset_bottom = 4.0
+theme_override_constants/separation = 0
+
+[node name="General" parent="MainPanel/Menus" instance=ExtResource("5_fi0my")]
+custom_minimum_size = Vector2(1536, 777.6)
+layout_mode = 2
+
+[node name="Language" parent="MainPanel/Menus/General/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("6_lk23j")]
+layout_mode = 2
+title_localization_code = "Language"
+localization_codes = Array[String](["English", "Português"])
+arguments = ["en", "pt"]
+func_to_call = "set_locale"
+func_to_set = "get_locale"
+
+[node name="Video" parent="MainPanel/Menus" instance=ExtResource("5_fi0my")]
+custom_minimum_size = Vector2(1536, 777.6)
+layout_mode = 2
+
+[node name="Fullscreen" parent="MainPanel/Menus/Video/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("7_wycbr")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+localization_code = "Fullscreen"
+func_to_call = "set_fullscreen"
+func_to_set = "get_fullscreen"
+
+[node name="Resolution" parent="MainPanel/Menus/Video/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("6_lk23j")]
+layout_mode = 2
+title_localization_code = "Resolution"
+localization_codes = Array[String](["640x360", "960x540", "1920x1080"])
+arguments = [Vector2i(640, 360), Vector2i(960, 540), Vector2i(1920, 1080)]
+func_to_call = "set_resolution"
+func_to_set = "get_resolution"
+
+[node name="Audio" parent="MainPanel/Menus" instance=ExtResource("5_fi0my")]
+custom_minimum_size = Vector2(1536, 777.6)
+layout_mode = 2
+
+[node name="Master" parent="MainPanel/Menus/Audio/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("8_iq7gq")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+localization_code = "Master"
+func_to_call = "set_bus_vol"
+call_binds = [0]
+func_to_set = "get_bus_vol"
+set_binds = [0]
+notches = 6
+
+[node name="Music" parent="MainPanel/Menus/Audio/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("8_iq7gq")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+localization_code = "Music"
+func_to_call = "set_bus_vol"
+call_binds = [1]
+func_to_set = "get_bus_vol"
+set_binds = [1]
+notches = 6
+
+[node name="SFX" parent="MainPanel/Menus/Audio/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("8_iq7gq")]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+localization_code = "SFX"
+func_to_call = "set_bus_vol"
+call_binds = [2]
+func_to_set = "get_bus_vol"
+set_binds = [2]
+notches = 6
+
+[node name="Controls" parent="MainPanel/Menus" instance=ExtResource("5_fi0my")]
+custom_minimum_size = Vector2(1536, 777.6)
+layout_mode = 2
+
+[node name="Up" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="0" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_miovx")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+
+[node name="Right" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="1" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_miovx")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["ui_right"])
+
+[node name="Down" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="2" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_miovx")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["ui_down"])
+
+[node name="Left" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="3" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_miovx")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["ui_left"])
+
+[node name="Accept" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="4" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_miovx")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["ui_accept"])
+
+[node name="Prev" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="5" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_miovx")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["prev"])
+
+[node name="Next" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="6" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_miovx")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["next"])
+
+[node name="Menu" parent="MainPanel/Menus/Controls/ScrollContainer/VBoxContainer" index="7" node_paths=PackedStringArray("menu_base") instance=ExtResource("9_miovx")]
+layout_mode = 2
+menu_base = NodePath("../../../../../..")
+actions = Array[String](["menu"])
+
+[node name="TabLeft" parent="." instance=ExtResource("10_omph4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.1
+anchor_bottom = 0.1
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_oqkkk")
+action = "prev"
+
+[node name="TabRight" parent="." instance=ExtResource("10_omph4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.1
+anchor_bottom = 0.1
+offset_right = 0.0
+offset_bottom = 0.0
+texture = ExtResource("11_oqkkk")
+action = "next"
+
+[editable path="MainPanel/Menus/General"]
+[editable path="MainPanel/Menus/Video"]
+[editable path="MainPanel/Menus/Audio"]
+[editable path="MainPanel/Menus/Controls"]

@@ -1,3 +1,4 @@
+@tool
 extends TextureRect
 class_name InputDisplay
 
@@ -197,7 +198,11 @@ const PLAYSTATION_TO_TEX = {
 const FORMAT = ".png"
 
 
-@export var action: String
+@export var action: String:
+	set(val):
+		action = val
+		if Engine.is_editor_hint():
+			try_load_from_dict(0, KEYCODE_TO_TEX, KEYCODE_PREFIX)
 @export var idx: int = 0
 var current_tex_path
 

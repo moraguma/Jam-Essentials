@@ -21,11 +21,12 @@ corner_radius_top_right = 32
 
 [resource]
 default_font = ExtResource("1_hgwvf")
-default_font_size = 16
+default_font_size = 64
 Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.886275, 0.490196, 0.0392157, 1)
 Button/colors/font_hover_color = Color(0.886275, 0.490196, 0.0392157, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 4
+Button/constants/outline_size = 16
 Button/styles/focus = SubResource("StyleBoxEmpty_4736t")
 Button/styles/pressed = SubResource("StyleBoxEmpty_3f1jj")
 Label/colors/font_color = Color(0, 0, 0, 1)
@@ -33,7 +34,7 @@ Label/font_sizes/font_size = 48
 Panel/styles/panel = SubResource("StyleBoxFlat_x81gp")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
-RichTextLabel/constants/outline_size = 4
+RichTextLabel/constants/outline_size = 16
 Tab/styles/deselected_tab = SubResource("StyleBoxFlat_83kp4")
 Tab/styles/selected_tab = SubResource("StyleBoxFlat_ponxp")
 VBoxContainer/constants/separation = 24
